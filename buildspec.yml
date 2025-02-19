@@ -3,7 +3,7 @@ phases:
   pre_build:
     commands:
        - echo Logging / auth in to Amazon ECR
-       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 405894864140.dkr.ecr.us-east-1.amazonaws.com
+       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 905418288379.dkr.ecr.us-east-1.amazonaws.com
   build:
     commands:
       - echo Build started
@@ -14,10 +14,10 @@ phases:
     commands:
      - echo build completed
      - echo pushing in to docker ECR...
-     - docker tag voting-app-worker:latest 405894864140.dkr.ecr.us-east-1.amazonaws.com/voting-app-worker:latest
-     - docker push 405894864140.dkr.ecr.us-east-1.amazonaws.com/voting-app-worker:latest
+     - docker tag voting-app-worker:latest 905418288379.dkr.ecr.us-east-1.amazonaws.com/voting-app-worker:latest
+     - docker push 905418288379.dkr.ecr.us-east-1.amazonaws.com/voting-app-worker:latest
      - echo Writing image definition file..
-     - printf '[{"name":"%s","imageUri":"%s"}]' "voting-app-worker" "405894864140.dkr.ecr.us-east-1.amazonaws.com/voting-app-worker" > imagedefinitions.json
+     - printf '[{"name":"%s","imageUri":"%s"}]' "voting-app-worker" "905418288379.dkr.ecr.us-east-1.amazonaws.com/voting-app-worker" > imagedefinitions.json
 artifacts:
   files:
     - imagedefinitions.json
